@@ -45,6 +45,7 @@ User Input (Image + Click Points)
 | `app.py` | Gradio UI class and layout — handles user interactions and rendering |
 | `.env` | Environment variables for tokens and model configuration |
 | `requirements.txt` | Python dependencies |
+| `tests/test_app.py` | Pytest unit tests with mocked model dependencies |
 
 ### Key Details
 
@@ -105,6 +106,16 @@ python GenAI_Image_InPainting_application.py
 4. **Adjust settings** — CFG scale, seed, steps, infill mode, watermark toggle
 5. **Click "Run Inpaint"** — Wait for generation
 6. **Download the result** — Save from the Output canvas
+
+### Running Tests
+
+Unit tests use pytest with mocked model dependencies (no GPU required):
+
+```bash
+pytest tests/ -v
+```
+
+20 tests covering: resolution utilities, mask conversion, class initialization, SAM execution, inpainting pipeline, NSFW detection, and output resolution handling.
 
 ---
 

@@ -72,3 +72,22 @@ Stores configuration and credentials:
 - **Mask inversion**: The mask can be inverted to infill the subject instead of the background
 - **Watermark**: An "AI Generated Image" watermark is overlaid on outputs, with automatic contrast adaptation (black or white) based on image brightness
 - **Environment variables**: All model names and tokens are loaded from `.env` with sensible defaults
+
+## Testing
+
+Unit tests are located in `tests/test_app.py` and use **pytest** with mocked model dependencies to enable fast, GPU-free testing.
+
+### Test Coverage
+
+| Test Class | What It Tests |
+|------------|---------------|
+| `TestMakeDivisibleBy8` | Resolution rounding utility (boundary cases, zero, large values) |
+| `TestMaskToRgb` | Mask-to-RGBA conversion (all-zero, all-one, partial masks, dtype) |
+| `TestInpaintGenAI` | Class init, reset, preprocess, SAM execution, inpainting pipeline, NSFW guard |
+| `TestResolutionHandling` | Preservation of original image dimensions through the pipeline |
+
+### Running Tests
+
+```bash
+pytest tests/ -v
+```
