@@ -1,0 +1,10 @@
+gradio
+numpy
+Pillow
+torch
+torchvision
+requests
+transformers
+diffusers
+safetensors
+python-dotenv
